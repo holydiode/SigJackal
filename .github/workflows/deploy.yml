@@ -34,7 +34,7 @@ jobs:
     env:
       LOGIN: ${{secrets.DOCKER_HUB_LOGIN }}
       NAME: ${{ secrets.DOCKER_HUB_NAME }}
-      TOKEN: ${{ env.DOCKER_HUB_TOKEN }}
+      TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
     steps:
       - name: Login to docker
         run:  echo $TOKEN | docker login ghcr.io -u $USERNAME --password-stdin 
