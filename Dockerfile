@@ -1,10 +1,11 @@
-FROM python:3.10-alpine
+FROM ubuntu:18.04
 COPY ./ /app
-RUN apk update
-RUN apk add --no-cache --update \
-    python3 python3-dev gcc \
-    gfortran musl-dev \
-    libffi-dev openssl-dev
+RUN apt update
+RUN apt -y upgrade
+RUN apt install software-properties-common -y
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt install python3.10
+RUN apt install -y python3-pip
 RUN pip install --upgrade pip
 RUN pip install -r /app/requirements.txt --no-cache-dir
 EXPOSE 8080
