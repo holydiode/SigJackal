@@ -34,9 +34,10 @@ jobs:
     env:
       LOGIN: ${{secrets.DOCKER_HUB_LOGIN }}
       NAME: ${{ secrets.DOCKER_HUB_NAME }}
+      TOKEN: ${{ env.DOCKER_HUB_TOKEN }}
     steps:
       - name: Login to docker
-        run:  echo ${{ secrets.DOCKER_HUB_LOGIN}}
+        run:  echo $TOKEN | docker login ghcr.io -u $USERNAME --password-stdin 
       - uses: actions/checkout@v3
       - name: Build image
         run: docker build -t $LOGIN/$NAME:${GITHUB_REF:11} -f Dockerfile .
