@@ -27,7 +27,7 @@ def upload_file():
             flash('Cant reed the file')
             return redirect(request.url)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
-        return redirect(url_for('download_file', name=filename))
+        return redirect(url_for('download_file', name=file.filename))
     return '''
     <!doctype html>
     <title>Загрузить новый файл</title>
