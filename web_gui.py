@@ -10,7 +10,7 @@ def hello():
 
 
 def main():
-    app.run(host='45.9.41.222', port=80)
+    app.run(debug=True, port=5000, host='0.0.0.0')
 
 if __name__ == '__main__':
     main()
