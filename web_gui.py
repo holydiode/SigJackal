@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def hello():
-    return jsonify({'version': 1})
+    return jsonify({'version': -2})
 
 
 def main():
